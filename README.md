@@ -19,6 +19,12 @@ The giving export CSV from FellowshipOne will have a field for contributor ID - 
 
 Planning Center Giving does not allow for contributions to be credited to a househould (for very valid reasons). So the script first searches the column of individual F1 IDs (from people.csv) for an exact match, and if it finds one - it just posts it to that person's record. If an exact match is not found, it then searches the household ID column and credits the donation to the first match it finds. It is using a simple sequential search, so I would suggest sorting your people.csv file to account for this. We sorted from top to bottom in this order - adult male, adult female, male child, female child.
 
+# Funds 
+Enter the fund IDs you will need where you see the sample ones in the script. These values can easily be found using Planning Center's API explorer 
+
+# Payment Sources
+We used a single payment source for all donations (called F1 import). Create one and find its ID (can also be found using the API explorer), and paste that value into each request object at the bottom of the script in the appropriate field. (Ours is 525 if you'd like to search for it)
+
 # Batches 
  The script is posting a month of transactions to each batch. When it reaches the end of that month, it is creating a new batch with the month (January 2016 for example) and then posting the donations to that batch. 
 
